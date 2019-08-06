@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.5/engine/Shopware/Components/Plugin/schema/plugin.xsd">
+    <label lang="de">Extended batch processing</label>
+    <label lang="en">Erweiterte Stapelverarbeitung</label>
+
+    <version>1.0.0</version>
+    <copyright>(c) by Westwerk GmbH</copyright>
+    <license>All rights reserved</license>
+    <link>https://westwerk.ac</link>
+    <author>Westwerk GmbH</author>
+    <compatibility minVersion="5.5.0"/>
+
+    <changelog version="1.0.0">
+        <changes lang="de">Initiales release</changes>
+        <changes lang="en">Initial release</changes>
+    </changelog>
+</plugin>
