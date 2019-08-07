@@ -1,4 +1,4 @@
-# Westwerk plugin extending batch order processing
+# Shopware plugin extending batch order processing
 
 Copy files to custom/plugins
 
