@@ -5,10 +5,10 @@
     <label lang="en">Erweiterte Stapelverarbeitung</label>
 
     <version>1.0.0</version>
-    <copyright>(c) by Westwerk GmbH</copyright>
-    <license>All rights reserved</license>
+    <copyright>(c) by Westwerk</copyright>
+    <license>MIT</license>
     <link>https://westwerk.ac</link>
-    <author>Westwerk GmbH</author>
+    <author>Westwerk</author>
     <compatibility minVersion="5.5.0"/>
 
     <changelog version="1.0.0">

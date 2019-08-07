@@ -4,31 +4,43 @@ namespace WwExtendBatch\Subscriber;
 
 use Enlight\Event\SubscriberInterface;
 
-class ExtendBatch implements SubscriberInterface 
+class ExtendBatch implements SubscriberInterface
 {
     /**
-     *  The install method of your plugin base file
+     * @var string
+     */
+    private $pluginDirectory;
+
+    /**
+     * @param $pluginDirectory
+     */
+    public function __construct($pluginDirectory)
+    {
+        $this->pluginDirectory = $pluginDirectory;
+    }
+    /**
+     * {@inheritdoc}
      */
     public static function getSubscribedEvents()
     {
         return [
-            'Enlight_Controller_Action_PostDispatchSecure_Frontend_Register' => 'onFrontendRegister'
+            'Enlight_Controller_Action_PostDispatchSecure_Backend_Order' => 'onOrderPostDispatch'
         ];
     }
-    
-    /**
-     * Event callback for the event registered above
-     */
-    public function onFrontendRegister(\Enlight_Event_EventArgs $args)
-    {
-        /** @var $controller \Enlight_Controller_Action */
-        $controller = $args->getSubject();
-        $view = $controller->View();
 
-        $basket = Shopware()->Modules()->Basket();
-        
-        // DO SOMETHING
-        $view->assign('sBasket', $basket->sGetBasketData());
+    public function onOrderPostDispatch(\Enlight_Event_EventArgs $args)
+    {
+        /** @var \Shopware_Controllers_Backend_Order $controller */
+        $controller = $args->getSubject();
+
+        $view = $controller->View();
+        $request = $controller->Request();
+
+        $view->addTemplateDir($this->pluginDirectory . '/Resources/views');
+
+        if ($request->getActionName() == 'load') {
+            $view->extendsTemplate('backend/ww_extend_order/view/batch/form.js');
+        }
     }
 }
 
